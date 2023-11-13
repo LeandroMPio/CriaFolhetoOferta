@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CriaFolhetoOferta.UsuarioCase;
-
-namespace CriaFolhetoOferta
+﻿namespace CriaFolhetoOferta
 {
     internal class Usuario : Pessoa
     {
@@ -15,15 +8,16 @@ namespace CriaFolhetoOferta
         public int Nivel { get; private set; }
         public Filial Filial  { get; private set; }
 
-        public Usuario(int id, string nome, string login, string password, string setor, int nivel, Filial filial)
+        public Usuario(string nome, string login, string password, string setor, int nivel, Filial filial)
         {
-            Id = id;
+            Id = new Random().Next(9999);
             Nome = nome;
             Login = login;
             Password = password;
             Setor = setor;
             Nivel = nivel;
             Filial = filial;
+            Filial.Usuarios.Add(this);
         }
     }
 }

@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CriaFolhetoOferta
+﻿namespace CriaFolhetoOferta
 {
     internal class Tema
     {
         public int Id { get; private set; }
-        public string NomeImagem { get; private set; }
         public string NomeTema { get; private set; }
+        public string NomeImagem { get; private set; }
 
-        public Tema(int id, string nomeImagem, string nomeTema)
+        public Tema(string nomeTema, string nomeImagem)
         {
-            Id = id;
-            NomeImagem = nomeImagem;
+            Id = new Random().Next(9999);
             NomeTema = nomeTema;
+            NomeImagem = nomeImagem;
         }
     }
 }
