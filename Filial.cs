@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CriaFolhetoOferta
+﻿namespace CriaFolhetoOferta
 {
     internal class Filial
     {
@@ -14,15 +7,16 @@ namespace CriaFolhetoOferta
         public int NumeroFilial { get; private set; }
         public string Endereco { get; private set; }
         public string Telefone { get; private set; }
-        public List<Usuario> Usuarios { get; private set; }
+        public List<Usuario> Usuarios { get; set; }
 
-        public Filial (int id, string nome, int numeroFilial, string endereco, string telefone)
+        public Filial (string nome, int numeroFilial, string endereco, string telefone)
         {
-            Id = id; 
+            Id = new Random().Next(9999); 
             Nome = nome;
             NumeroFilial = numeroFilial;
             Endereco = endereco;
             Telefone = telefone;
+            Usuarios = new();
         }
 
     }
