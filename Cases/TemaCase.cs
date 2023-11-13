@@ -1,33 +1,31 @@
 using CriaFolhetoOferta.Interfaces;
-
 namespace CriaFolhetoOferta.Cases
 {
-		internal class FilialCase : ICadastrar<Filial>, IListar, IEncontrarElemento, IDeletar
+	internal class TemaCase : ICadastrar<Tema>, IListar, IEncontrarElemento, IDeletar
+	{
+		public List<Tema> Temas { get; private set; } = new();
+		public void Cadastrar(Tema entidade)
 		{
-				public List<Filial> Filiais { get; private set; } = new();
-
-		public void Cadastrar(Filial entidade)
-		{
-				Filiais.Add(entidade);
+				Temas.Add(entidade);
 		}
 		public object EncontrarUmElemento(int identificacao)
 		{
-				Filial filialEncontrada = Filiais.FirstOrDefault(x => x.Id.Equals(identificacao));
+				Tema filialEncontrada = Temas.FirstOrDefault(x => x.Id.Equals(identificacao));
 				return filialEncontrada;
 			}
 
 		public void ListarTodosElementos()
 		{
 			
-			if(Filiais.Count == 0) 
+			if(Temas.Count == 0) 
 			{
-					Console.WriteLine("Não existe Filiais cadastradas!");
+					Console.WriteLine("Não existe Temas cadastradas!");
 			}
 			else
 			{
-					foreach (Filial filial in Filiais)
+					foreach (Filial filial in Temas)
 					{
-							Console.WriteLine("Listando Todas Filiais:");
+							Console.WriteLine("Listando Todas Temas:");
 							Console.WriteLine($"Nome:\t{filial.Nome}");
 							Console.WriteLine($"Nº Filial:\t{filial.NumeroFilial}");
 							Console.WriteLine($"Endereço:\t{filial.Endereco}");
@@ -74,9 +72,9 @@ namespace CriaFolhetoOferta.Cases
 			}
 			else
 			{
-				Filiais.Remove(Filial);
+				Temas.Remove(Filial);
 				Console.WriteLine($"Filial {Filial.Nome} deletada");
 			}
 		}
-	}
+	} 
 }

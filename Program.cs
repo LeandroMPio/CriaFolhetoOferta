@@ -8,8 +8,10 @@ namespace CriaFolhetoOferta
         {
             Filial CotiaCentro = new("Cotia centro", 59, "Av. Professor José Barreto 1217", "(11) 4666-9000");
             Usuario Leandro = new("Leandro", "leandr999999", "senha", "CPD", 1, CotiaCentro);
+						Produto CocaColaLata = new(7699, "REF.COCA-COLA LATA - 350ML", "UND");
             UsuarioCase Usuarios = new();
 						FilialCase Filiais = new();
+						ProdutoCase Produtos = new();
 
 
 						//Usuario
@@ -19,7 +21,8 @@ namespace CriaFolhetoOferta
             Usuarios.Deletar(Leandro.Id);
             Usuarios.ListarTodosElementos();
             Usuarios.ListarUmElemento(Leandro.Id);
-						Console.WriteLine("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+						Console.WriteLine("");
+						Console.WriteLine("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 
 						//Filial
 						Filiais.Cadastrar(CotiaCentro);
@@ -28,8 +31,23 @@ namespace CriaFolhetoOferta
 						Filiais.Deletar(CotiaCentro.Id);
 						Filiais.ListarTodosElementos();
 						Filiais.ListarUmElemento(CotiaCentro.Id);
-						Console.WriteLine("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-						Console.ReadLine();
+						Console.WriteLine("");
+						Console.WriteLine("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");			
+
+						//Produto
+						Produtos.Cadastrar(CocaColaLata);
+						Produtos.ListarTodosElementos();
+						Produtos.ListarUmElemento(CocaColaLata.CodigoInterno);
+						Produtos.Deletar(CocaColaLata.CodigoInterno);
+						Produtos.ListarTodosElementos();
+						Produtos.ListarUmElemento(CocaColaLata.CodigoInterno);
+						Console.WriteLine("");
+						Console.WriteLine("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+
+
+
+									Console.ReadLine();
+
 
         }
     }

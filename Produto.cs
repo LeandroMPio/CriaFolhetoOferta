@@ -2,16 +2,15 @@
 {
     internal class Produto
     {
-        public string Descricao { get; private set; }
-        public string Tipo { get; private set; }
         public int CodigoInterno { get; private set; }
+        public string Descricao { get; private set; }
+        public string Embalagem { get; private set; }
 
-        public Produto (string descricao, string tipo, int codigoInterno)
+        public Produto (int codigoInterno, string descricao, string embalagem)
         {
-            Descricao = descricao;
-            Tipo = tipo;
             CodigoInterno = codigoInterno;
+            Descricao = descricao;
+            Embalagem = embalagem;
         }
-
     }
 }
