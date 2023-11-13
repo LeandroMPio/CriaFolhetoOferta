@@ -1,4 +1,5 @@
 using CriaFolhetoOferta.Interfaces;
+using System.Reflection;
 
 namespace CriaFolhetoOferta.Cases
 {
@@ -66,5 +67,13 @@ namespace CriaFolhetoOferta.Cases
 				Console.WriteLine($"Produto {Produto.Descricao} deletado");
 			}
 		}
-	}
+
+        public void Exibir(object produto)
+        {
+            Type tipo = produto.GetType();
+            PropertyInfo[] propriedades = tipo.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            ExibirInformacoes.Exibir(propriedades, $"Todas propriedades de {tipo.Name}");
+
+        }        
+    }
 }
