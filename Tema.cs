@@ -6,11 +6,11 @@
         public string NomeImagem { get; private set; }
         public string NomeTema { get; private set; }
 
-        public Tema(int id, string nomeImagem, string nomeTema)
+        public Tema(string nomeTema, string nomeImagem)
         {
-            Id = id;
-            NomeImagem = nomeImagem;
+            Id = new Random().Next(9999);
             NomeTema = nomeTema;
+            NomeImagem = nomeImagem;
         }
     }
 }

@@ -12,27 +12,27 @@ namespace CriaFolhetoOferta.Cases
 		}
 		public object EncontrarUmElemento(int identificacao)
 		{
-				Produto ProdutoEncontrado = Produtos.FirstOrDefault(x => x.CodigoInterno.Equals(identificacao));
-				return ProdutoEncontrado;
-			}
+			Produto ProdutoEncontrado = Produtos.FirstOrDefault(x => x.CodigoInterno.Equals(identificacao));
+			return ProdutoEncontrado;
+		}
 
 		public void ListarTodosElementos()
 		{
 			
 			if(Produtos.Count == 0) 
 			{
-					Console.WriteLine("Não existe Produtos cadastrados!");
+				Console.WriteLine("Não existe Produtos cadastrados!");
 			}
 			else
 			{
-					foreach (Produto produto in Produtos)
-					{
-							Console.WriteLine("Listando Todos Produtos:");
-							Console.WriteLine($"Código Interno:\t{produto.CodigoInterno}");
-							Console.WriteLine($"Descrição:\t{produto.Descricao}");
-							Console.WriteLine($"Embalagem:\t{produto.Embalagem}");
-							Console.WriteLine("-------------------------------");
-					}
+                Console.WriteLine("Listando Todos Produtos:");
+                foreach (Produto produto in Produtos)
+				{					
+					Console.WriteLine($"Código Interno:\t{produto.CodigoInterno}");
+					Console.WriteLine($"Descrição:\t{produto.Descricao}");
+					Console.WriteLine($"Embalagem:\t{produto.Embalagem}");
+					Console.WriteLine("-------------------------------");
+				}
 			}
 		}
 
@@ -41,15 +41,15 @@ namespace CriaFolhetoOferta.Cases
 			Produto Produto = (Produto)EncontrarUmElemento(identificacao);
 			if(Produto == null) 
 			{
-					Console.WriteLine("Produto não encontrado");
+				Console.WriteLine("Produto não encontrado");
 			}
 			else
 			{
-					Console.WriteLine($"Listando o Produto informada:");
-					Console.WriteLine($"Código Interno:\t{Produto.CodigoInterno}");
-					Console.WriteLine($"Descrição:\t{Produto.Descricao}");
-					Console.WriteLine($"Embalagem:\t{Produto.Embalagem}");
-					Console.WriteLine("-------------------------------");
+				Console.WriteLine($"Listando o Produto informada:");
+				Console.WriteLine($"Código Interno:\t{Produto.CodigoInterno}");
+				Console.WriteLine($"Descrição:\t{Produto.Descricao}");
+				Console.WriteLine($"Embalagem:\t{Produto.Embalagem}");
+				Console.WriteLine("-------------------------------");
 			}
 
 		}
@@ -58,7 +58,7 @@ namespace CriaFolhetoOferta.Cases
 			Produto Produto = (Produto)EncontrarUmElemento(identificacao);
 			if(Produto == null) 
 			{
-					Console.WriteLine("Produto não encontrado");
+				Console.WriteLine("Produto não encontrado");
 			}
 			else
 			{

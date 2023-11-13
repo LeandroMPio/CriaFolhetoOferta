@@ -6,74 +6,62 @@ namespace CriaFolhetoOferta.Cases
 		public List<Tema> Temas { get; private set; } = new();
 		public void Cadastrar(Tema entidade)
 		{
-				Temas.Add(entidade);
+			Temas.Add(entidade);
 		}
 		public object EncontrarUmElemento(int identificacao)
 		{
-				Tema filialEncontrada = Temas.FirstOrDefault(x => x.Id.Equals(identificacao));
-				return filialEncontrada;
-			}
+			Tema TemaEncontrado = Temas.FirstOrDefault(x => x.Id.Equals(identificacao));
+			return TemaEncontrado;
+		}
 
 		public void ListarTodosElementos()
 		{
 			
 			if(Temas.Count == 0) 
 			{
-					Console.WriteLine("Não existe Temas cadastradas!");
+				Console.WriteLine("Não existe Temas cadastrados!");
 			}
 			else
 			{
-					foreach (Filial filial in Temas)
-					{
-							Console.WriteLine("Listando Todas Temas:");
-							Console.WriteLine($"Nome:\t{filial.Nome}");
-							Console.WriteLine($"Nº Filial:\t{filial.NumeroFilial}");
-							Console.WriteLine($"Endereço:\t{filial.Endereco}");
-							Console.WriteLine($"Telefone:\t{filial.Telefone}");
-							foreach (Usuario usuario in filial.Usuarios)
-							{
-								Console.WriteLine("Usuario(s) da Filial:");
-								Console.WriteLine($"Nome:\t{usuario.Nome}");
-							}
-							Console.WriteLine("-------------------------------");
-					}
+                Console.WriteLine("Listando Todas Temas:");
+                foreach (Tema tema in Temas)
+				{
+					Console.WriteLine($"ID:\t{tema.Id}");
+					Console.WriteLine($"Nome:\t{tema.NomeTema}");
+					Console.WriteLine($"Imagem:\t{tema.NomeImagem}");
+					Console.WriteLine("-------------------------------");
+				}
 			}
 		}
 
 		public void ListarUmElemento(int identificacao)
 		{
-			Filial Filial = (Filial)EncontrarUmElemento(identificacao);
-			if(Filial == null) 
+			Tema Tema = (Tema)EncontrarUmElemento(identificacao);
+			if(Tema == null) 
 			{
-					Console.WriteLine("Filial não encontrada");
+				Console.WriteLine("Tema não encontrado");
 			}
 			else
 			{
-					Console.WriteLine($"Listando a Filial informada:");
-					Console.WriteLine($"Nome:\t{Filial.Nome}");
-					Console.WriteLine($"Login:\t{Filial.NumeroFilial}");
-					Console.WriteLine($"Setor:\t{Filial.Endereco}");
-					Console.WriteLine($"Filial:\t{Filial.Telefone}");
-					foreach (Usuario usuario in Filial.Usuarios)
-							{
-								Console.WriteLine("Usuario(s) da Filial:");
-								Console.WriteLine($"Nome:\t{usuario.Nome}");
-							}
-					Console.WriteLine("-------------------------------");
-			}
+				Console.WriteLine($"Listando o Tema informado:");
+                Console.WriteLine($"ID:\t{Tema.Id}");
+                Console.WriteLine($"Nome:\t{Tema.NomeTema}");
+                Console.WriteLine($"Imagem:\t{Tema.NomeImagem}");
+                Console.WriteLine("-------------------------------");
+            }
 
 		}
 		public void Deletar(int identificacao)
 		{
-			Filial Filial = (Filial)EncontrarUmElemento(identificacao);
-			if(Filial == null) 
+            Tema Tema = (Tema)EncontrarUmElemento(identificacao);
+            if (Tema == null) 
 			{
-					Console.WriteLine("Filial não encontrada");
+					Console.WriteLine("Tema não encontrado");
 			}
 			else
 			{
-				Temas.Remove(Filial);
-				Console.WriteLine($"Filial {Filial.Nome} deletada");
+				Temas.Remove(Tema);
+				Console.WriteLine($"Tema {Tema.NomeTema} deletada");
 			}
 		}
 	} 

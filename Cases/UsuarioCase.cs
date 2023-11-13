@@ -20,6 +20,7 @@ namespace CriaFolhetoOferta.Cases
                 Console.WriteLine("Listando Todos Usuários:");
                 foreach (var usuario in Usuarios)
                 {
+                    Console.WriteLine($"ID:\t{usuario.Id}");
                     Console.WriteLine($"Nome:\t{usuario.Nome}");
                     Console.WriteLine($"Login:\t{usuario.Login}");
                     Console.WriteLine($"Setor:\t{usuario.Setor}");
@@ -30,8 +31,8 @@ namespace CriaFolhetoOferta.Cases
         }
         public object EncontrarUmElemento(int identificacao)
         {
-						var usuarioEncontrado = Usuarios.FirstOrDefault(x => x.Id.Equals(identificacao));
-						return usuarioEncontrado;
+			var usuarioEncontrado = Usuarios.FirstOrDefault(x => x.Id.Equals(identificacao));
+			return usuarioEncontrado;
         }
         public void ListarUmElemento(int identificacao)
         {
@@ -43,26 +44,27 @@ namespace CriaFolhetoOferta.Cases
             else
             {
                 Console.WriteLine($"Listando o usuário informado:");
+                Console.WriteLine($"ID:\t{Usuario.Id}");
                 Console.WriteLine($"Nome:\t{Usuario.Nome}");
                 Console.WriteLine($"Login:\t{Usuario.Login}");
                 Console.WriteLine($"Setor:\t{Usuario.Setor}");
                 Console.WriteLine($"Filial:\t{Usuario.Filial.Nome}");
-								Console.WriteLine("-------------------------------");                
+				Console.WriteLine("-------------------------------");                
             }
         }
 
         public void Deletar(int identificacao)
         {
             Usuario Usuario = (Usuario)EncontrarUmElemento(identificacao);
-						if(Usuario == null)
+			if(Usuario == null)
             {
                 Console.WriteLine("Usuário não encontrado");
             }
-						else
-						{
-								Usuarios.Remove(Usuario);
-								Console.WriteLine($"Usuário {Usuario.Nome} deletado");
-						}
+			else
+			{
+				Usuarios.Remove(Usuario);
+				Console.WriteLine($"Usuário {Usuario.Nome} deletado");
+			}
         }
 
     }
